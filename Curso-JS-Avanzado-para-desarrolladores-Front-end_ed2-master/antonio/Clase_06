@@ -1,0 +1,119 @@
+/* ============================ CLASE 7 ============================ */
+
+//1 * Reordenar alfabeticamente profes fictizia
+/* ====================================================================
+
+var allItems = document.querySelectorAll("ul#teachersList > li");
+var itemsArray = Array.prototype.slice.call(allItems);
+
+function compare(a,b) {
+	// --> Esta está MAL LA COMPARACIÓN <--
+	//a.innerText.localeCompare(b.innerText);
+	//FALTABA EL RETURNNNN --> 1, -1 o 0
+	return a.innerText.localeCompare(b.innerText);	
+};
+
+itemsArray.sort(compare);
+
+function reordenar() {
+
+	document.querySelector("ul#teachersList").innerHTML = "";
+
+	for(var i in itemsArray) {
+
+        document.querySelector("ul#teachersList").innerHTML += itemsArray[i].outerHTML;
+
+    	}
+
+};
+
+reordenar();
+
+//2 * Cursos Fictizia --> Faltan las horas que estaban en ".contextualInfo" <--
+/* ====================================================================
+var arrayTitles = document.querySelectorAll("ul#trainingAreasTabs li");
+
+function printCourses() {
+
+	console.log("# Cursos de Fictizia");
+
+	for(var i in arrayTitles) {
+
+	    if(arrayTitles[i].innerText !== undefined){
+
+	        var printTitle = arrayTitles[i].innerText;
+	        console.info("## "+printTitle);
+			printSection(i);
+
+	    }
+
+	};
+}
+
+function printSection(i) {
+
+	i = Number(i)+1;
+	var arraySection = document.querySelectorAll("#trainingAreas section:nth-child("+i+") .course");
+
+	var coursesLength = arraySection.length;
+	console.log("**Total de cursos: "+coursesLength+"**");
+	//console.info("ID1: "+i);
+	printSectionCourses(i);
+
+};
+
+function printSectionCourses(id) {
+	
+	//console.info("ID2: "+id);
+	var arraySectionCourses = document.querySelectorAll("#trainingAreas section:nth-child("+id+") .course .courseInfo h2");
+	var l = arraySectionCourses.length;
+	
+	for(var i=1; i<=l; i++) {
+		if(arraySectionCourses[i] !== undefined) {
+		
+		var courseTitle = arraySectionCourses[i].querySelector("a").innerText;
+		var courseLink = arraySectionCourses[i].querySelector("a");
+		console.log("- ["+courseTitle+"] ("+courseLink+").");
+		}
+    }
+
+	console.log("===================================================================");
+	
+}
+
+printCourses();
+
+//3 * Estado lineas de metro --> Falta cuando hay incidencia que cambia ".txt" por ".r" <--
+/* ====================================================================
+
+var allItems = document.querySelectorAll(".circulacion .txt a");
+//var itemsArray = Array.prototype.slice.call(allItems);
+var itemsArray = allItems;
+
+for(var i=0; i <= itemsArray.length ; i++) {
+
+	if(itemsArray[i] !== undefined) {
+		var printRes = itemsArray[i].text;
+		console.log(printRes);
+    }
+
+};
+
+//4 * El mundotoday allimgs to kitten --> Mejor hecho --> Recoger width y height de cada imagen
+y hacer la llamada a la web de thumbs pasando esas datos y así se pinta exacta.
+/* ====================================================================
+
+var allItems = document.getElementsByTagName("img");
+//var itemsArray = Array.prototype.slice.call(allItems);
+var itemsArray = allItems;
+
+for(var i=0; i <= itemsArray.length ; i++) {
+
+	if(itemsArray[i] !== undefined) {
+		itemsArray[i].src = "https://placekitten.com/800/400";
+    }
+
+};
+
+//5 * Genbeta
+/* ====================================================================
